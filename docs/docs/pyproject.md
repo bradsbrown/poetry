@@ -192,6 +192,15 @@ poetry = 'poetry:console.run'
 
 Here, we will have the `poetry` script installed which will execute `console.run` in the `poetry` package.
 
+To specify a script that
+[depends on an extra](https://setuptools.readthedocs.io/en/latest/setuptools.html#declaring-extras-optional-features-with-their-own-dependencies),
+you may provide an entry as a dict:
+
+```toml
+[tool.poetry.scripts]
+devtest = {callable = 'mypackage:test.run_tests', extras = ['test']}
+```
+
 ## `extras`
 
 Poetry supports extras to allow expression of:
